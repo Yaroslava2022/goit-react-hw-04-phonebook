@@ -5,30 +5,17 @@ import { v4 as uuidv4 } from 'uuid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
-import { saveToLS, getFromLS } from './LocalStorage/LocalStorage';
+
 import css from './App.module.css';
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
-  const [filter, setFilter] = useState("");
-
-
-//   const getContactsFromLS=()=> {
-//     const parsedContactsFromLs= getFromLS("contactsData");
-//     if (parsedContactsFromLs) {setContacts(parsedContactsFromLs)}
- 
-//   }
-// getContactsFromLS();
-  const parsedContactsFromLs = getFromLS("contactsData");
-  
-  useEffect(() => {
-    if (parsedContactsFromLs) {
-      setContacts(parsedContactsFromLs);
-    }},[]);
-   
+  const [contacts, setContacts] = useState(
+    JSON.parse(window.localStorage.getItem('contacts')) ?? []
+  );
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    saveToLS("contactsData", contacts);
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
   }, [contacts]);
 
    const filterHandler = (e) => {
