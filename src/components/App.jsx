@@ -12,7 +12,13 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [filter, setFilter] = useState("");
 
-  
+
+//   const getContactsFromLS=()=> {
+//     const parsedContactsFromLs= getFromLS("contactsData");
+//     if (parsedContactsFromLs) {setContacts(parsedContactsFromLs)}
+ 
+//   }
+// getContactsFromLS();
   const parsedContactsFromLs = getFromLS("contactsData");
   
   useEffect(() => {
@@ -20,6 +26,7 @@ export default function App() {
       setContacts(parsedContactsFromLs);
     }},[]);
    
+    
   useEffect(() => {
     saveToLS("contactsData", contacts);
   }, [contacts]);
