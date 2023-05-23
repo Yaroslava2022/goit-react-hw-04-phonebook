@@ -24,7 +24,7 @@ export default function App() {
   useEffect(() => {
     if (parsedContactsFromLs) {
       setContacts(parsedContactsFromLs);
-    }},[parsedContactsFromLs]);
+    }},[]);
    
 
   useEffect(() => {
