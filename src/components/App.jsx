@@ -63,7 +63,6 @@ export default function App() {
       contact.name.toString().toLowerCase().includes(normalizedFilter),
     );
   };
-
   
     return (
       <div className={css.container}>
