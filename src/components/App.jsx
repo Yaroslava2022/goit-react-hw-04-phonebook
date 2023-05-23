@@ -18,8 +18,7 @@ export default function App() {
   useEffect(() => {
     if (parsedContactsFromLs) {
       setContacts(parsedContactsFromLs);
-    }
-  }, []);
+    }},[]);
    
   useEffect(() => {
     saveToLS("contactsData", contacts);
